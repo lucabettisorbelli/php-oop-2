@@ -1,14 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+class Prodotto
+{
+    public $nome;
+    public $prezzo;
+    public $immagine;
+    public $categoria;
 
-<body>
-    <h1>ciao</h1>
-</body>
+    public function __construct($nome, $prezzo, $immagine, $categoria)
+    {
+        $this->nome = $nome;
+        $this->prezzo = $prezzo;
+        $this->immagine = $immagine;
+        $this->categoria = $categoria;
+    }
 
-</html>
+    public function stampaCard()
+    {
+        echo "<div class='card'>";
+        echo "<img src='" . $this->immagine . "' alt='" . $this->nome . "'>";
+        echo "<h2>" . $this->nome . "</h2>";
+        echo "<p>Prezzo: " . $this->prezzo . "€</p>";
+        echo "<p>Categoria: " . $this->categoria . "</p>";
+        echo "<p>Tipo: " . get_class($this) . "</p>";
+        echo "</div>";
+    }
+}
