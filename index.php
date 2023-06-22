@@ -50,11 +50,17 @@ foreach ($prodotti as $prodotto) {
     <?php
 
     echo "<div class='container'>";
+
     foreach ($prodotti as $prodotto) {
         echo "<div class='card'>";
         echo "<img src='" . $prodotto->immagine . "' alt='" . $prodotto->nome . "'>";
         echo "<h2>" . $prodotto->nome . "</h2>";
-        echo "<p>Prezzo: " . number_format($prodotto->prezzo, 2) . "€</p>";
+        if ($prodotto->categoria == 'Per cani') {
+            echo "<p>Prezzo originale: " . number_format($prodotto->prezzoOriginale, 2) . "€</p>";
+            echo "<p>Prezzo scontato: " . number_format($prodotto->prezzo, 2) . "€</p>";
+        } else {
+            echo "<p>Prezzo: " . number_format($prodotto->prezzoOriginale, 2) . "€</p>";
+        }
         echo "<p>Categoria: " . $prodotto->categoria . "</p>";
         if ($prodotto instanceof Cibo) {
             echo "<p>Peso: " . $prodotto->peso . "kg</p>";

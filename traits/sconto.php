@@ -20,6 +20,7 @@ class Prodotto
     public $prezzo;
     public $immagine;
     public $categoria;
+    public $prezzoOriginale;
 
     public function __construct($nome, $prezzo, $immagine, $categoria)
     {
@@ -31,6 +32,7 @@ class Prodotto
         $this->prezzo = $prezzo;
         $this->immagine = $immagine;
         $this->categoria = $categoria;
+        $this->prezzoOriginale = $prezzo;
     }
 
     public function applicaScontoCani()
