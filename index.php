@@ -3,7 +3,8 @@
 require __DIR__ . "/models/Gioco.php";
 require __DIR__ . "/models/Cuccia.php";
 require __DIR__ . "/models/Cibo.php";
-class Prodotto
+require_once __DIR__ . "/traits/sconto.php";
+class Product
 {
     public $nome;
     public $prezzo;
@@ -20,11 +21,17 @@ class Prodotto
 }
 
 
-$prodotti = array(
+
+$prodotti = [
     new Cibo("Crocchette per cani", 10.99, "https://rsbackend.blob.core.windows.net/product/Crocchette-per-cani-Special-Dog-Monge_8d19bdcffa118d9.jpeg", "Per cani", 15),
     new Gioco("Palla da tennis", 4.99, "https://static.zoomalia.com/prod_img/73480/lm_8214558dbb6f6f8bb2e16d03b85bde76e2c1594643614.jpg", "Per cani", "Gomma"),
     new Cuccia("Cuccia per gatti", 29.99, "https://immagini.qualescegliere.it/articoli/2019/10/cuccia-per-gatti-da-esterni.jpg", "Per gatti", "40x40x70cm")
-);
+];
+
+foreach ($prodotti as $prodotto) {
+    $prodotto->applicaScontoCani();
+}
+
 
 ?>
 

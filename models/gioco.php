@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+require_once __DIR__ . "/../traits/sconto.php";
+
 
 class Gioco extends Prodotto
 {
